@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://iksf347r7i8o"]
+
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_2h6bi"]
+[ext_resource type="Texture2D" uid="uid://cq18xs2ubbyfd" path="res://graphics/playerShip1_blue.png" id="1_g28yr"]
+[ext_resource type="AudioStream" uid="uid://cfu57fp6bnjn6" path="res://audio/sfx_laser1.ogg" id="3_iwt5a"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ikp7n"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(2, 2, 2)
+emission_shape = 1
+emission_sphere_radius = 5.0
+direction = Vector3(1, 1, 2.08165e-12)
+gravity = Vector3(2.08165e-12, 100, 2.08165e-12)
+scale_min = 6.0
+scale_max = 9.0
+color = Color(0.863727, 0.20319, 0.3712, 1)
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 6
+script = ExtResource("1_2h6bi")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(0, 33)
+process_material = SubResource("ParticleProcessMaterial_ikp7n")
+lifetime = 0.3
+
+[node name="PlayerImage" type="Sprite2D" parent="."]
+texture = ExtResource("1_g28yr")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-6, -36, 8, -36, 12, -12, 36, 2, 45, -6, 51, -5, 47, 23, 40, 22, 15, 29, 7, 39, -6, 38, -13, 29, -41, 20, -45, 26, -49, -5, -38, 2, -13, -10)
+
+[node name="LaserBarrel" type="Marker2D" parent="."]
+position = Vector2(0, -56)
+
+[node name="LaserTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_iwt5a")
+
+[connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
