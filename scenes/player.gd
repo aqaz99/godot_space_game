@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed := 500
 var can_shoot := true
+var is_paused := true
 signal laser(pos)
 
 # Called when the node enters the scene tree for the first time.
@@ -21,6 +22,9 @@ func _process(_delta):
 		can_shoot = false
 		$LaserTimer.start()
 		$LaserSound.play()
+		
+
+		
 
 
 func _on_laser_timer_timeout():

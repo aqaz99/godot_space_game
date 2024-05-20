@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtnovouqo4f0"]
+[gd_scene load_steps=11 format=3 uid="uid://dtnovouqo4f0"]
 
 [ext_resource type="Script" path="res://scenes/level.gd" id="1_afy6r"]
 [ext_resource type="Texture2D" uid="uid://b3dxku4p4eh8a" path="res://graphics/Backgrounds/purple.png" id="1_wdfpq"]
 [ext_resource type="PackedScene" uid="uid://iksf347r7i8o" path="res://scenes/player.tscn" id="2_axye2"]
 [ext_resource type="PackedScene" uid="uid://bbxxg7sh56m1a" path="res://scenes/ui.tscn" id="4_4xpgl"]
 [ext_resource type="AudioStream" uid="uid://byqlyh1u5mxn6" path="res://audio/sfx_shieldDown.ogg" id="5_v7cxm"]
+[ext_resource type="PackedScene" uid="uid://fekgfhs8hhev" path="res://scenes/pause_menu.tscn" id="6_7e6pv"]
+[ext_resource type="PackedScene" uid="uid://8xxi4cy5yyux" path="res://scenes/skill_tree.tscn" id="7_tmxgr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a22rd"]
 size = Vector2(64, 726)
@@ -71,6 +73,12 @@ frame_progress = 0.304003
 
 [node name="LoseHealthSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_v7cxm")
+
+[node name="PauseMenu" parent="." instance=ExtResource("6_7e6pv")]
+visible = false
+
+[node name="SkillTree" parent="." instance=ExtResource("7_tmxgr")]
+visible = false
 
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]

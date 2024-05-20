@@ -3,7 +3,7 @@ extends CanvasLayer
 @export var level_scene: PackedScene 
 
 func _ready():
-	$MarginContainer/Score.text = "Score: " + str(Global.score)
+	$MarginContainer/Score.text = "Score: " + str(int(Global.score))
 	$GameOverSound.play()
 	
 func _input(event):

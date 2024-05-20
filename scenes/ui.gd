@@ -14,5 +14,5 @@ func set_health(amount):
 
 
 func _on_score_timer_timeout():
-	Global.score += 1
-	$MarginContainer/Score.text = str(Global.score)
+	Global.score += .25
+	$MarginContainer/Score.text = str(int(Global.score))

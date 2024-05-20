@@ -38,6 +38,7 @@ layout_mode = 2
 theme_override_constants/separation = 7
 
 [node name="ScoreTimer" type="Timer" parent="."]
+wait_time = 0.25
 autostart = true
 
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_score_timer_timeout"]

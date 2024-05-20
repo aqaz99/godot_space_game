@@ -29,3 +29,4 @@ func _on_player_laser(pos):
 	var laser = laser_scene.instantiate()
 	$Lasers.add_child(laser)
 	laser.position = pos
+	
