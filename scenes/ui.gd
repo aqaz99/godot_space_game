@@ -1,5 +1,5 @@
 extends CanvasLayer
-static var image = load('res://graphics/UI/playerLife1_blue.png') 
+static var image = load('res://graphics/UI/playerLife1_blue.png')
 func set_health(amount):
 	# Remove children from hbox
 	for child in $MarginContainer2/HBoxContainer.get_children():

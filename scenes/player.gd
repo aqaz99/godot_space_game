@@ -24,8 +24,5 @@ func _process(_delta):
 		$LaserSound.play()
 		
 
-		
-
-
 func _on_laser_timer_timeout():
 	can_shoot = true
