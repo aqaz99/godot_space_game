@@ -23,6 +23,8 @@ func _process(_delta):
 		$LaserTimer.start()
 		$LaserSound.play()
 		
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and Global.missile_count > 0:
+		print("Shoot missile")
 
 func _on_laser_timer_timeout():
 	can_shoot = true
