@@ -14,18 +14,15 @@ func set_health(amount):
 		text_rect.stretch_mode = TextureRect.STRETCH_KEEP
 		
 	
-
-
 func _on_score_timer_timeout():
 	Global.score += .25
 	$MarginContainer/Score.text = str(int(Global.score))
-
 
 func _on_missile_timer_timeout():
 	for child in $MissileContainer/HBoxContainer.get_children():
 		child.queue_free()
 		
-	for i in Global.missile_count:
+	for i in Global.current_missiles:
 		var text_rect = TextureRect.new()
 		text_rect.texture = missile_image
 		$MissileContainer/HBoxContainer.add_child(text_rect)

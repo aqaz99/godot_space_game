@@ -2,7 +2,7 @@ extends CanvasLayer
 
 var missile_abilities = {
   "missile_1": {
-	"cost": 100,
+	"cost": 10,
 	"unlocked": false,
 	"image": "res://graphics/Upgrades/missile_1.png",
 	"rotation": 0,
@@ -10,7 +10,7 @@ var missile_abilities = {
   "missile_2": {
 	"cost": 250,
 	"unlocked": false,
-	"image": "res://graphics/Upgrades/missile_2.png",
+	"image": "res://graphics/Upgrades/missile_2d.png",
 	"rotation": 0,
   }
 }
@@ -72,7 +72,7 @@ func _input(event):
 				Global.score -= missile_abilities[hovered_upgrade]["cost"]  
 				$Score.text = "Cash: " + str(int(Global.score))
 				missile_abilities[hovered_upgrade]["unlocked"] = true
-				Global.missile_count += 3
+				Global.max_missiles += 3
 
 func _on_ability_mouse_entered(upgrade):
 	missile_abilities[upgrade]["background_object"].color = Color(0, 0, 255, .6) if missile_abilities[upgrade]["unlocked"] else Color(Color.DIM_GRAY, .8)

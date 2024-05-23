@@ -39,4 +39,9 @@ wait_time = 0.5
 [node name="LaserSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_iwt5a")
 
+[node name="MissileTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
 [connection signal="timeout" from="LaserTimer" to="." method="_on_laser_timer_timeout"]
+[connection signal="timeout" from="MissileTimer" to="." method="_on_missile_timer_timeout"]

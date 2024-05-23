@@ -2,6 +2,8 @@ extends Node2D
 
 var meteor_scene: PackedScene = load("res://scenes/meteor.tscn")
 var laser_scene: PackedScene = load("res://scenes/laser.tscn")
+var missile_scene: PackedScene = load("res://scenes/missile.tscn")
+
 
 var health := 3
 
@@ -30,3 +32,9 @@ func _on_player_laser(pos):
 	$Lasers.add_child(laser)
 	laser.position = pos
 	
+
+
+func _on_player_missile(pos, velocity):
+	var missile = missile_scene.instantiate()
+	$Missiles.add_child(missile)
+	missile.position = pos

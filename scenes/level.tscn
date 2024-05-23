@@ -80,5 +80,8 @@ visible = false
 [node name="SkillTree" parent="." instance=ExtResource("7_tmxgr")]
 visible = false
 
+[node name="Missiles" type="Node2D" parent="."]
+
 [connection signal="laser" from="Player" to="." method="_on_player_laser"]
+[connection signal="missile" from="Player" to="." method="_on_player_missile"]
 [connection signal="timeout" from="MeteorTimer" to="." method="_on_meteor_timer_timeout"]
